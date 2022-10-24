@@ -27,7 +27,7 @@ button:hover {
 .container {
     background-color: rgb(169, 163, 163);
     width: 380px;
-    height: 530px;  
+    height: auto;  
     margin-top: 120px;
     border: 2px solid rgb(0, 0, 0);
     display: flex;
@@ -40,25 +40,33 @@ button:hover {
     background-color: rgb(226, 228, 230);
     border: 2px solid rgb(0, 0, 0);
     width: 376px;
-    height: 100px;
+    min-height: 100px;
+    max-height: max-content;
     margin-bottom: 10px;
-    text-align: right;
+    padding-bottom: 18px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex: 1 0 auto;
 }
 
-p {
-    margin-right: 10px;
+#numbers, #operation {
     font-family: 'digital-clock-font';
+    margin-right: 10px;
 }
 
 #numbers {
     font-size: 60px;
-    margin-top: 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    line-height: 62px;
 }
 
 #operation {
     font-size: 30px;
-    margin-bottom: 20px;
-    margin-top: 5px;
 }
 
 .clear {
