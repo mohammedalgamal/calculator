@@ -8,7 +8,12 @@ function createButtons() {
 
     for (let i = 0; i < values.length; i++) {
         let btn = document.createElement('button');
-        btn.classList = 'inner';
+        if (isNaN(Number(values[i])) && values[i] !== '.') {
+            btn.classList = 'operator';
+        }
+        else {
+            btn.classList = 'inner';
+        };
         btn.textContent = values[i];
         parent.appendChild(btn);
     };
