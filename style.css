@@ -35,6 +35,16 @@ button:hover {
     width: 376px;
     height: 100px;
     margin-bottom: 10px;
+    text-align: right;
+}
+
+p {
+    margin-right: 10px;
+}
+
+#numbers {
+    font-size: xx-large;
+    margin-top: 0;
 }
 
 .clear {
