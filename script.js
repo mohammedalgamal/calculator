@@ -58,6 +58,7 @@ function pressedButton(){
     let result = 0;
     let isOperator = false;
     let isEqualSign = false;
+    let acceptedOperators = '+-*/=';
 
     ac.addEventListener('click', () =>{
         num1 = '';
@@ -122,5 +123,46 @@ function pressedButton(){
             };
         };
     }));
+
+    document.addEventListener('keypress', e => {
+        if (!isNaN(Number(e.key)) || e.key === '.'){
+            if (!isOperator || isEqualSign) {
+                if (!(num1.split(".").length - 1 > 0 && e.target.textContent === '.')) {
+                    num1 += e.key;
+                    display(num1, 'numbers');
+                };
+            }
+            else {
+                if (!(num2.split(".").length - 1 > 0 && e.target.textContent === '.')) {
+                    num2 += e.key;
+                    display(num2, 'numbers');
+                };
+            };
+        }
+        else if (acceptedOperators.includes(e.key)) {
+            if (num1 === '') {
+                return;
+            };
+    
+            if (num1 !== '' && num2 !== '') {
+                result = callOperation(num1, num2, operator);
+                display(result, 'numbers')
+                num1 = result.toString();
+                num2 = '';
+                isOperator = false;
+            };
+    
+            if (e.key === '='){
+                isEqualSign = true;
+            }
+            else {
+                isEqualSign = false;
+            };
+    
+            isOperator = true
+            operator = e.key;
+            display(operator, 'operation');          
+        };
+    });
 };
 pressedButton();
